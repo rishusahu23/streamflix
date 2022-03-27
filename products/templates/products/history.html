@@ -1,0 +1,35 @@
+{% extends "products/parent.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block body %}
+
+</head>
+<body>
+
+<main role="main">
+
+  <div class="container-fluid">
+    <div class="form-row">
+
+      {% for video in history_videos %}
+
+        <div class="shadow-lg card mx-2 my-3 " style="width: 28rem;">
+                 {% load static %}
+              <a href='/video/{{ video.video.id }}/{{ playlist_id }}'>
+               <img src="{{video.video.thumbtail}}" class="card-img-top" alt="No Video Present">
+              </a>
+                  <p class = "mx-3 my-3"><strong class="font-italic">{{ video.video.title }}</strong><br><small class="text-muted" >Viewed on {{ video.dateTime }}</small></p>
+            </div>
+
+
+
+
+            {% endfor %}
+        </div>
+      </div>
+
+</main>
+{% endblock %}

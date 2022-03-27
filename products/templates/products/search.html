@@ -1,0 +1,46 @@
+{% extends "products/parent.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block body %}
+
+</head>
+<body>
+
+<main role="main">
+
+  <div class="container-fluid">
+    <div  id = "show_video" class="row justify-content-md-center">
+
+      {% for video in most_recent_videos %}
+
+            <div class="shadow-lg card mx-2 my-3 " style="width: 28rem;">
+                 {% load static %}
+              <a href='/video/{{ video.id }}'>
+              <img src="{{video.thumbtail}}" class="card-img-top" alt="No Video Present">
+              </a>
+                  <p class = "mx-3 my-3"><strong class="font-italic">{{ video.title }}</strong><br><small class="text-muted" >Uploaded by {{ video.user }} on {{ video.upload_date }}</small></p>
+            </div>
+
+
+            {% endfor %}
+        {% for playlist in playlist %}
+
+            <div class="shadow-lg card mx-2 my-3 " style="width: 28rem;position:relative;">
+                 {% load static %}
+              <a href='/video/0/{{ playlist.id }}'>
+                  <img src="{{playlist.thumbtail}}" class="card-img-top" alt="No Video Present">
+                  <img src='{% static "playlist.png" %}'  style = "position: absolute;right:0px;right:0px;top: 0px;width:200px;opacity:0.4;filter: invert(1);" class="card-img-top" alt="No Video Present">
+
+              </a>
+                  <p class = "mx-3 my-3"><strong class="font-italic">{{ playlist.title }}</strong><br><small class="text-muted" >Uploaded on {{ playlist.upload_date }}</small></p>
+            </div>
+            {% endfor %}
+
+        </div>
+      </div>
+
+</main>
+{% endblock %}

@@ -1,0 +1,1 @@
+web: gunicorn strangeflix.wsgi --log-file -
